@@ -20,11 +20,11 @@ use App\Http\Controllers\Auth\AuthController;
 //Auth::routes();
 
 
-Route::get('/main', 'PostsController@index')->name('show');
+Route::get('/main', 'PostsController@index');
 Route::get('/share', 'ShareController@index');
 Route::get('/top', 'TopController@index');
 Route::post('/top', 'TopController@index');
-Route::post('/main', 'PostsController@index')->name('show');
+Route::post('/main', 'PostsController@index');
 Route::post('/share', 'ShareController@store');
 Route::get('/edit/{id}', 'UserController@edit');
 Route::post('/update/{id}', 'UserController@update');
@@ -47,12 +47,12 @@ Route::get('/main/like/{id}', 'PostsController@like')->name('main.like');
 Route::get('/main/unlike/{id}', 'PostsController@unlike')->name('main.unlike');
 
 
-Route::get('/user/like/{id}', 'UsersController@like')->name('user.like');
-Route::get('/user/unlike/{id}', 'UsersController@unlike')->name('user.unlike');
+//Route::get('/user/like/{id}', 'UsersController@like')->name('user.like');
+//Route::get('/user/unlike/{id}', 'UsersController@unlike')->name('user.unlike');
 
-Route::resource('/show/{user_id}', 'UsersController', ['main' => ['show']]);
-Route::get('/show', 'UsersController@index');
-Route::post('/show', 'UsersController@index');
+//Route::resource('/show/{id}', 'UsersController', ['main' => ['show']]);
+//Route::get('/show', 'UsersController@index');
+//Route::post('/show', 'UsersController@index');
 //新規登録
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
@@ -63,7 +63,7 @@ Route::post('login', 'Auth\LoginController@login');
 
 //ログアウト
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('logout', 'Auth\LoginController@logout');
 
 //パスワードリセット
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

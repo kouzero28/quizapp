@@ -3,7 +3,7 @@
 @include('layouts.head')
 @include('layouts.header')
 @section('content')
-    <div class="topp">
+    <div class="top">
         @if (session('message'))
             <div class="alert alert-success">
                 <p class="alert-success">{{ session('message') }}</p>
@@ -13,8 +13,8 @@
             @foreach ($posts as $post)
                 <div class="form-wrapper3">
 
-                    <a style="padding-top:10px; font-size:30px; color:black;width:80px;height:auto;"
-                        href="show/{{ $post->user_id }}">{{ $post->user_name }}</a>
+                    <p style="padding-top:10px; font-size:30px; color:black;width:80px;height:auto;">
+                        {{ $post->user_name }}</p>
                     <div style="padding-top:10px">{!! nl2br(e($post->quiz)) !!}</div>
                     <details>
                         <summary>Hint</summary>
