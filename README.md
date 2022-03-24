@@ -1,4 +1,4 @@
-# Quiz Share&Answe
+# Quiz Share&Answer
 ##### PHP自作
 # 概要
 ##### 従来のクイズアプリと違い、クイズを投稿する機能をもったアプリとなります。
