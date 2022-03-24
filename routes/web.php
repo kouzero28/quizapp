@@ -14,31 +14,31 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 //Route::get('/', function () {
-    //return view('top');
+//return view('top');
 //});
 
 //Auth::routes();
 
 
-Route::get('/main', 'PostsController@index');
+Route::get('/main', 'PostsController@index')->name('show');
 Route::get('/share', 'ShareController@index');
-Route::get('/top','TopController@index');
-Route::post('/top','TopController@index');
-Route::post('/main','PostsController@index');
-Route::post('/share','ShareController@store');
-Route::get('/edit/{id}','UserController@edit');
-Route::post('/update/{id}','UserController@update');
+Route::get('/top', 'TopController@index');
+Route::post('/top', 'TopController@index');
+Route::post('/main', 'PostsController@index')->name('show');
+Route::post('/share', 'ShareController@store');
+Route::get('/edit/{id}', 'UserController@edit');
+Route::post('/update/{id}', 'UserController@update');
 Route::get('/{id}/delete', 'PostsController@delete');
 Route::get('/{id}/delete', 'UserController@delete');
 
-Route::get('/user_edit/{id}','UserController@user_edit');
-Route::post('/user_update/{id}','UserController@user_update');
+Route::get('/user_edit/{id}', 'UserController@user_edit');
+Route::post('/user_update/{id}', 'UserController@user_update');
 
 
-Route::get('/user','UserController@index')->name('user');
-Route::post('/user','UserController@index');
-Route::get('/show','ShowController@index');
-Route::post('/show','ShowController@index');
+Route::get('/user', 'UserController@index')->name('user');
+Route::post('/user', 'UserController@index');
+Route::get('/show', 'ShowController@index');
+Route::post('/show', 'ShowController@index');
 
 
 Route::get('/', 'PostsController@index')->name('main');
@@ -46,6 +46,13 @@ Route::get('/', 'PostsController@index')->name('main');
 Route::get('/main/like/{id}', 'PostsController@like')->name('main.like');
 Route::get('/main/unlike/{id}', 'PostsController@unlike')->name('main.unlike');
 
+
+Route::get('/user/like/{id}', 'UsersController@like')->name('user.like');
+Route::get('/user/unlike/{id}', 'UsersController@unlike')->name('user.unlike');
+
+Route::resource('/show/{user_id}', 'UsersController', ['main' => ['show']]);
+Route::get('/show', 'UsersController@index');
+Route::post('/show', 'UsersController@index');
 //新規登録
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');

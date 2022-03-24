@@ -379,6 +379,9 @@ form {
   color:#e71708;
   margin-right:0;
   text-align:center;
+  width:150px;
+  margin-left:auto;
+  height:auto;
 }
 
 .badge{
