@@ -24,7 +24,7 @@ class UsersController extends Controller
             ->orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
             ->paginate(10); // ページネーション; 
         return view('show', [
-            'user_name' => $user->name, // $user名をviewへ渡す
+            //'user_name' => $user->name, // $user名をviewへ渡す
             'posts' => $posts, // $userの書いた記事をviewへ渡す
             'user' => $user
         ]);

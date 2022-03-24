@@ -39,8 +39,6 @@
                         <a href="{{ route('main.like', ['id' => $post->id]) }}" class="like">good!<span
                                 class="badge">{{ $post->likes->count() }}</span></a>
                     @endif
-
-
                 </div>
             @endforeach
         </div>
