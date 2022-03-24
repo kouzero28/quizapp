@@ -3,7 +3,7 @@
 @include('layouts.head')
 @include('layouts.header')
 @section('content')
-<div class="toppp">
+<div class="topp">
     @if(session('message'))
     <div class="alert alert-success">
         <p class="alert-success">{{session('message')}}</p>
