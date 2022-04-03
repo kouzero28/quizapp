@@ -93,7 +93,7 @@ class PostsController extends Controller
 
   public function delete($id)
   {
-    \DB::table('posts')
+    DB::table('posts')
       ->where('id', $id)
       ->delete();
     return redirect('/main');
