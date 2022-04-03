@@ -16,7 +16,6 @@
         <div class="form-wrapper2">
             @foreach ($posts as $post)
                 <div class="form-wrapper3">
-
                     <div style="padding-top:30px">{{ $post->quiz }}</div>
                     <details>
                         <summary>Hint</summary>
