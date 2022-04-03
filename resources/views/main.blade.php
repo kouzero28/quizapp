@@ -12,7 +12,6 @@
         <div class="form-wrapper2">
             @foreach ($posts as $post)
                 <div class="form-wrapper3">
-
                     <p style="padding-top:10px; font-size:30px; color:black;width:80px;height:auto;">
                         {{ $post->user_name }}</p>
                     <div style="padding-top:10px">{!! nl2br(e($post->quiz)) !!}</div>
