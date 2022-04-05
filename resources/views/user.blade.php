@@ -16,14 +16,14 @@
         <div class="form-wrapper2">
             @foreach ($posts as $post)
                 <div class="form-wrapper3">
-                    <div style="padding-top:30px">{{ $post->quiz }}</div>
+                    <div style="padding-top:30px">{!! nl2br(e($post->quiz)) !!}</div>
                     <details>
                         <summary>Hint</summary>
-                        {{ $post->hint }}
+                        {!! nl2br(e($post->hint)) !!}
                     </details>
                     <details>
                         <summary>Answer</summary>
-                        {{ $post->answer }}
+                        {!! nl2br(e($post->answer)) !!}
                     </details>
                     <p class="time">{{ $post->created_at }}</p>
                     <div class="delete1" style="display:flex">
