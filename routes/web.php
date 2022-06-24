@@ -16,32 +16,37 @@ use App\Http\Controllers\Auth\AuthController;
 
 
 
-Route::get('/main', 'PostsController@index');
-Route::get('/share', 'ShareController@index');
+Route::get('/main', 'PostsController@index')->middleware('auth');
+Route::post('/main', 'PostsController@index')->middleware('auth');
+
+Route::post('/share', 'ShareController@store')->middleware('auth');
+Route::get('/share', 'ShareController@index')->middleware('auth');
+
 Route::get('/top', 'TopController@index');
 Route::post('/top', 'TopController@index');
-Route::post('/main', 'PostsController@index');
-Route::post('/share', 'ShareController@store');
-Route::get('/edit/{id}', 'UserController@edit');
-Route::post('/update/{id}', 'UserController@update');
-Route::get('/{id}/delete', 'PostsController@delete');
-Route::get('/{id}/delete', 'UserController@delete');
-
-Route::get('/user_edit/{id}', 'UserController@user_edit');
-Route::post('/user_update/{id}', 'UserController@user_update');
 
 
-Route::get('/user', 'UserController@index')->name('user');
-Route::post('/user', 'UserController@index');
-Route::get('/show', 'ShowController@index');
-Route::post('/show', 'ShowController@index');
+Route::get('/edit/{id}', 'UserController@edit')->middleware('auth');
+
+Route::post('/update/{id}', 'UserController@update')->middleware('auth');
+
+Route::get('/{id}/delete', 'PostsController@delete')->middleware('auth');
+Route::get('/{id}/delete', 'UserController@delete')->middleware('auth');
+
+Route::get('/user_edit/{id}', 'UserController@user_edit')->middleware('auth');
+Route::post('/user_update/{id}', 'UserController@user_update')->middleware('auth');
+
+Route::get('/user', 'UserController@index')->name('user')->middleware('auth');
+Route::post('/user', 'UserController@index')->middleware('auth');
+
+Route::get('/show', 'ShowController@index')->middleware('auth');
+Route::post('/show', 'ShowController@index')->middleware('auth');
 
 
-Route::get('/', 'PostsController@index')->name('main');
+Route::get('/', 'PostsController@index')->name('main')->middleware('auth');
 
-Route::get('/main/like/{id}', 'PostsController@like')->name('main.like');
-Route::get('/main/unlike/{id}', 'PostsController@unlike')->name('main.unlike');
-
+Route::get('/main/like/{id}', 'PostsController@like')->name('main.like')->middleware('auth');
+Route::get('/main/unlike/{id}', 'PostsController@unlike')->name('main.unlike')->middleware('auth');
 
 //新規登録
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
