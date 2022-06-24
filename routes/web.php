@@ -13,11 +13,7 @@ use App\Http\Controllers\Auth\AuthController;
 |
 */
 
-//Route::get('/', function () {
-//return view('top');
-//});
 
-//Auth::routes();
 
 
 Route::get('/main', 'PostsController@index');
@@ -47,12 +43,6 @@ Route::get('/main/like/{id}', 'PostsController@like')->name('main.like');
 Route::get('/main/unlike/{id}', 'PostsController@unlike')->name('main.unlike');
 
 
-//Route::get('/user/like/{id}', 'UsersController@like')->name('user.like');
-//Route::get('/user/unlike/{id}', 'UsersController@unlike')->name('user.unlike');
-
-//Route::resource('/show/{id}', 'UsersController', ['main' => ['show']]);
-//Route::get('/show', 'UsersController@index');
-//Route::post('/show', 'UsersController@index');
 //新規登録
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');

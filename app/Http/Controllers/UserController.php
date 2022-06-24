@@ -15,7 +15,6 @@ class UserController extends Controller
     {
         $users = Auth::user();
 
-        //$posts = Post::get()->sortByDesc("id");
 
         $posts = Post::where('user_id', $users->id) //$userによる投稿を取得
             ->orderBy('created_at', 'desc') // 投稿作成日が新しい順に並べる
@@ -74,7 +73,7 @@ class UserController extends Controller
         $posts->hint = $request->input('hint');
         $posts->answer = $request->input('answer');
         $posts->save();
-        #return redirect('greeting',['status' => 'UPDATE完了！']);　←error!
+
         return redirect('user')->with('message', 'Edit OK!');
     }
 
@@ -105,13 +104,12 @@ class UserController extends Controller
 
         $user->name = $request->input('name');
         $user->save();
-        #return redirect('greeting',['status' => 'UPDATE完了！']);　←error!
+
         return redirect('user')->with('message', 'Edit OK!');
     }
 
     public function __construct()
     {
-        //$this->middleware('auth');
         $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
     }
 
@@ -136,9 +134,4 @@ class UserController extends Controller
 
         return redirect()->back();
     }
-
-    //public function __construct(){
-    //$this->middleware('auth');
-    //}
-
 }
