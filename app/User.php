@@ -6,7 +6,7 @@
 
 //class User extends Model
 //{
-    //protected $guarded = array('id');
+//protected $guarded = array('id');
 //}
 namespace App;
 
@@ -53,8 +53,6 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany('App\Post'); 
+        return $this->hasMany('App\Post');
     }
-
-    
 }

@@ -7,21 +7,22 @@ use Auth;
 
 class Post extends Model
 {
-    public function user()
-    {
-        return $this->belongsTo('App\User');
-    }
+  public function user()
+  {
+    return $this->belongsTo('App\User');
+  }
 
-    public function likes(){
-        return $this->hasMany(Like::class, 'post_id');
-    }
+  public function likes()
+  {
+    return $this->hasMany(Like::class, 'post_id');
+  }
 
-    public function is_liked_by_auth_user()
+  public function is_liked_by_auth_user()
   {
     $id = Auth::id();
 
     $likers = array();
-    foreach($this->likes as $like) {
+    foreach ($this->likes as $like) {
       array_push($likers, $like->user_id);
     }
 
@@ -31,6 +32,4 @@ class Post extends Model
       return false;
     }
   }
-
-    
 }

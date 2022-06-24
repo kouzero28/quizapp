@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 class EditController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('edit');
     }
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 }
