@@ -13,7 +13,7 @@
         "laravel/framework": "^6.20.26",
         "laravel/tinker": "^2.5",
         "laravel/ui": "1.*",
-        "doctrine/dbal": "~2.3" //追加
+        "doctrine/dbal": "~2.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
