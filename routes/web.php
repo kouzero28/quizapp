@@ -14,9 +14,7 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 
-Route::get('/', function () {
-    return view('top');
-});
+
 
 Route::get('/main', 'PostsController@index')->middleware('auth');
 Route::post('/main', 'PostsController@index')->middleware('auth');
