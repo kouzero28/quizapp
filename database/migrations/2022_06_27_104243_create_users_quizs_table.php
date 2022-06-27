@@ -17,7 +17,7 @@ class CreateUsersQuizsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('quiz_id');
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable();
         });
     }
 
