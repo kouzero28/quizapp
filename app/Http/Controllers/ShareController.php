@@ -33,7 +33,7 @@ class ShareController extends Controller
         $posts->hint = $request->hint;
         $posts->answer = $request->answer;
         $posts->user_id = Auth::id(); //ここでログインしているユーザidを登録しています
-        $posts->user_name = $user->name;
+        //$posts->user_name = $user->name;
         $posts->save();
 
 
