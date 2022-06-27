@@ -27,6 +27,7 @@ Route::post('/top', 'TopController@index');
 
 
 Route::get('/edit/{id}', 'UserController@edit')->middleware('auth');
+Route::post('/edit/{id}', 'UserController@edit')->middleware('auth');
 
 Route::post('/update/{id}', 'UserController@update')->middleware('auth');
 
@@ -34,6 +35,8 @@ Route::get('/{id}/delete', 'PostsController@delete')->middleware('auth');
 Route::get('/{id}/delete', 'UserController@delete')->middleware('auth');
 
 Route::get('/user_edit/{id}', 'UserController@user_edit')->middleware('auth');
+Route::post('/user_edit/{id}', 'UserController@user_edit')->middleware('auth');
+
 Route::post('/user_update/{id}', 'UserController@user_update')->middleware('auth');
 
 Route::get('/user', 'UserController@index')->name('user')->middleware('auth');
